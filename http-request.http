@@ -1,0 +1,179 @@
+### Login
+POST {{host}}/auth
+Content-Type: application/json
+
+{
+  "username": "pavlo",
+  "password": "1234"
+}
+
+### Get all users
+GET http://localhost:4000/users
+
+### Create user
+POST http://localhost:4000/users
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+
+{
+  "username": "otros",
+  "password": "1234",
+  "role": "customer"
+}
+
+### Update user
+PATCH http://localhost:4000/users
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+
+{
+  "id": 100,
+  "username": "rodrigo"
+}
+
+### Delete user
+DELETE http://localhost:4000/users
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+
+{
+  "id": 100
+}
+
+### Get categories
+GET http://localhost:4000/categories
+
+### Create category
+POST http://localhost:4000/categories
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+
+{
+  "name": "electronica"
+}
+
+### Update category
+PATCH http://localhost:4000/categories
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+
+{
+  "id": 2,
+  "name": "otra categoria"
+}
+
+### Delete category
+DELETE http://localhost:4000/categories
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+
+[
+  2
+]
+
+### Get products
+GET http://localhost:4000/products
+
+### Create product
+POST http://localhost:4000/products
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+
+{
+  "name": "nuevo articulo2",
+  "categoryId": 1
+}
+
+### Update products
+PATCH http://localhost:4000/products
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+
+{
+  "id": 4,
+  "name": "otro nombre",
+  "categoryId": 1
+}
+
+### Delete product
+DELETE http://localhost:4000/products
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+
+[
+  4
+]
+
+### Get orders
+GET http://localhost:4000/orders
+Authorization: Bearer {{auth_token}}
+
+### Get orders with filter
+GET http://localhost:4000/orders
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+
+{
+  "id": 5
+}
+
+### Create order
+POST http://localhost:4000/orders
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+
+{
+  "userId": 1,
+  "orderProducts": [
+    {
+      "productId": 1,
+      "quantity": 100
+    },
+    {
+      "productId": 2,
+      "quantity": 37
+    }
+  ]
+}
+
+### Update order
+PATCH http://localhost:4000/orders
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+
+{
+  "id": 3,
+  "userId": 2,
+  "orderProducts": [
+    {
+      "productId": 1,
+      "quantity": 59
+    },
+    {
+      "productId": 2,
+      "quantity": 64
+    }
+  ]
+}
+
+### Delete order
+DELETE http://localhost:4000/orders
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+
+[
+  5,6
+]
+
+### Get all order products
+GET http://localhost:4000/orders/order_products
+Authorization: Bearer {{auth_token}}
+
+### Delete order products
+DELETE http://localhost:4000/orders/order_products
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+
+[
+  100
+]
